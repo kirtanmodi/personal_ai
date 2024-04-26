@@ -41,7 +41,7 @@ def ask_question(question, some_threshold=0.5):
 
     response = client.completions.create(
         model="gpt-3.5-turbo-instruct",
-        prompt=f"Given the text: '{
+        prompt=f"Answer the question based on the text provided, and if the question can't be answered based on the context, say \"I don't know\"\n\n '{
             about_me_text}'\n\nQuestion: {question}\nAnswer:",
         max_tokens=150
     )
