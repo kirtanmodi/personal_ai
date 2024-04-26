@@ -4,7 +4,7 @@ import pandas as pd
 import os
 
 
-with open('data.txt', 'r') as file:
+with open('MY_DATA.txt', 'r') as file:
     about_me_text = file.read()
 
 
