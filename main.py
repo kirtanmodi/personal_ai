@@ -41,10 +41,15 @@ def ask_question(question, some_threshold=0.5):
     #     prompt_text = f"Question may not be very relevant to the 'about me' text. Consider general knowledge for answering:\n\nQuestion: {
     #         question}\nAnswer:"
 
+    # prompt_text = f"Given the text: '{
+    #     about_me_text}'\n\nQuestion: {question}\nAnswer:"
+
+    prompt_text = f"Answer the question based on the text provided, and if the question can't be answered based on the context say \"I don't know\" text: \n\n '{
+        about_me_text}'\n\nQuestion: {question}\nAnswer:"
+
     response = client.completions.create(
         model="gpt-3.5-turbo-instruct",
-        prompt=f"Answer the question based on the text provided, and if the question can't be answered based on the context, say \"I don't know\"\n\n '{
-            about_me_text}'\n\nQuestion: {question}\nAnswer:",
+        prompt=prompt_text,
         max_tokens=150
     )
 
