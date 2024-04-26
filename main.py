@@ -35,9 +35,11 @@ def ask_question(question, some_threshold=0.5):
     # print(f"Cosine Similarity: {cosine_similarity}")
 
     # if cosine_similarity > some_threshold:
-    #     print("Question is closely related to the content.")
+    #     prompt_text = f"Given the text: '{
+    #         about_me_text}'\n\nQuestion: {question}\nAnswer:"
     # else:
-    #     print("Question may not be very relevant to the content.")
+    #     prompt_text = f"Question may not be very relevant to the 'about me' text. Consider general knowledge for answering:\n\nQuestion: {
+    #         question}\nAnswer:"
 
     response = client.completions.create(
         model="gpt-3.5-turbo-instruct",
@@ -52,7 +54,7 @@ def ask_question(question, some_threshold=0.5):
 while True:
     user_input = input("How can I help you? (Press 'q' to quit):")
     if user_input.lower() == 'q':
-        print("Exiting the conversation.")
+        print("Exiting.")
         break
     else:
         print(ask_question(user_input))
